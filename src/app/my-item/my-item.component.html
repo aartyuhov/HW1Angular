@@ -1,0 +1,29 @@
+<h2>Products:</h2>
+
+<ul class = "products">
+    <li *ngFor = "let pr of myProducts">
+        <button [class.selected]="pr === selectedPr" type = "button" (click) = "onSelect(pr)">
+        <span class="name">{{pr.name}}</span>
+    </button>
+    </li>
+</ul>
+
+<div *ngIf="selectedPr">
+    <h2>{{selectedPr.name}} details:</h2>
+    <div>
+        <label>description:
+        <input [(ngModel)] = "selectedPr.description" placeholder = "description"/>
+        </label>
+    </div>
+    <div>
+        <label>price:
+        <input [(ngModel)] = "selectedPr.price" placeholder = "price"/>
+        </label>
+        </div>
+    <div>
+        <label>on stock:
+        <input type = "checkbox" [(ngModel)] = "selectedPr.onStock"/>
+        </label>
+    </div>
+</div>
+    
